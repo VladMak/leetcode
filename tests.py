@@ -1,6 +1,5 @@
 import unittest
 from main import Solution 
-from ListNode import ListNode
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -27,27 +26,31 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.solution.twoSum([3,2,4], 6), [1, 2])
         self.assertEqual(self.solution.twoSum([3, 3], 6), [0, 1])
 
-    def test_addTwoNumbers(self):
+    def test_reverse(self):
         """Example 1:
 
-        Input: l1 = [2,4,3], l2 = [5,6,4]
-        Output: [7,0,8]
-        Explanation: 342 + 465 = 807.
+        Input: x = 123
+        Output: 321
 
         Example 2:
 
-        Input: l1 = [0], l2 = [0]
-        Output: [0]
+        Input: x = -123
+        Output: -321
 
         Example 3:
 
-        Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
-        Output: [8,9,9,9,0,0,0,1]
+        Input: x = 120
+        Output: 21
+
+        Example 4:
+
+        Input: x = 0
+        Output: 0
         """
-        l1 = ListNode(val = 2, next=ListNode(4, next=ListNode(3)))
-        self.assertEqual(self.solution.addTwoNumbers([2,4,3], [5,6,4]), [7,0,8])
-        self.assertEqual(self.solution.addTwoNumbers([0], [0]), [0])
-        self.assertEqual(self.solution.addTwoNumbers([9,9,9,9,9,9,9], [9,9,9,9]), [8,9,9,9,0,0,0,1])
+        self.assertEqual(self.solution.reverse(123), 321)
+        self.assertEqual(self.solution.reverse(-123), -321)
+        self.assertEqual(self.solution.reverse(120), 21)
+        self.assertEqual(self.solution.reverse(0), 0)
 
 if __name__ == '__main__':
     unittest.main()
