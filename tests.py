@@ -52,5 +52,82 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.solution.reverse(120), 21)
         self.assertEqual(self.solution.reverse(0), 0)
 
+    def test_isPalindrome(self):
+        """Example 1:
+
+        Input: x = 121
+        Output: true
+
+        Example 2:
+
+        Input: x = -121
+        Output: false
+        Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+
+        Example 3:
+
+        Input: x = 10
+        Output: false
+        Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
+
+        Example 4:
+
+        Input: x = -101
+        Output: false
+        """
+        self.assertEqual(self.solution.isPalindrome(121), True)
+        self.assertEqual(self.solution.isPalindrome(-121), False)
+        self.assertEqual(self.solution.isPalindrome(10), False)
+        self.assertEqual(self.solution.isPalindrome(-101), False)
+
+    def romanToInt(self):
+        """Example 1:
+
+        Input: s = "III"
+        Output: 3
+
+        Example 2:
+
+        Input: s = "IV"
+        Output: 4
+
+        Example 3:
+
+        Input: s = "IX"
+        Output: 9
+
+        Example 4:
+
+        Input: s = "LVIII"
+        Output: 58
+        Explanation: L = 50, V= 5, III = 3.
+
+        Example 5:
+
+        Input: s = "MCMXCIV"
+        Output: 1994
+        Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
+        """
+        self.assertEqual(self.solution.romanToInt("III"), 3)
+        self.assertEqual(self.solution.romanToInt("IV"), 4)
+        self.assertEqual(self.solution.romanToInt("IX"), 9)
+        self.assertEqual(self.solution.romanToInt("LVIII"), 58)
+        self.assertEqual(self.solution.romanToInt("MCMXCIV"), 1994)
+
+    def test_longestCommonPrefix(self):
+        """Example 1:
+
+        Input: strs = ["flower","flow","flight"]
+        Output: "fl"
+
+        Example 2:
+
+        Input: strs = ["dog","racecar","car"]
+        Output: ""
+        Explanation: There is no common prefix among the input strings.
+        """
+        self.assertEqual(self.solution.longestCommonPrefix(["flower","flow","flight"]), "fl")
+        self.assertEqual(self.solution.longestCommonPrefix(["dog","racecar","car"]), "")
+
 if __name__ == '__main__':
     unittest.main()
