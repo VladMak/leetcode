@@ -79,7 +79,6 @@ class Solution:
             last_pref = strs[0]
             for word in strs[1:]:
                 prefix += "_"
-                #breakpoint()
                 if len(last_pref) >= len(word):
                     for k, v in enumerate(word):
                         if v == last_pref[k]:
@@ -100,9 +99,41 @@ class Solution:
 
         return prefix.split("_")[-1]
 
+    def isValid(self, s: str) -> bool:
+        """Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+        An input string is valid if:
+
+            Open brackets must be closed by the same type of brackets.
+            Open brackets must be closed in the correct order."""
+        opens = []
+        close_parentheses = [")", "]", "}"]
+        open_parentheses = ["(", "[", "{"]
+        close = {"(":")", "[":"]", "{":"}"}
+        if s[0] in close_parentheses:
+            return False
+        #breakpoint()
+        for key, value in enumerate(s):
+            if value in open_parentheses:
+                opens.append(value)
+                continue
+            if len(opens) > 0 and value in close_parentheses and value == close[opens[-1]]:
+                opens.pop()
+                continue
+            else:
+                return False
+        if opens:
+            return False
+        else:
+            return True
+
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        """Merge two sorted linked lists and return it as a sorted list. The list should be made by splicing together the nodes of the first two lists."""
+        pass
+
 if __name__ == '__main__':
 	solution = Solution()
-	#print(solution.twoSum([2,7,11,15], 9))
-	#print(solution.twoSum([3,2,4], 6))
-	#print(solution.twoSum([3, 3], 6))
-	print(solution.longestCommonPrefix(["aaa","aa","aaa"]))
+    ln1 = ListNode(val=1)
+    ln2 = ListNode(val=2, next=ln1)
+    ln3 = ListNode(val=4, next=ln3)
+	print(solution.isValid("(])"))

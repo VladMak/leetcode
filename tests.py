@@ -129,5 +129,56 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.solution.longestCommonPrefix(["flower","flow","flight"]), "fl")
         self.assertEqual(self.solution.longestCommonPrefix(["dog","racecar","car"]), "")
 
+    def test_isValid(self):
+        """Example 1:
+
+        Input: s = "()"
+        Output: true
+
+        Example 2:
+
+        Input: s = "()[]{}"
+        Output: true
+
+        Example 3:
+
+        Input: s = "(]"
+        Output: false
+
+        Example 4:
+
+        Input: s = "([)]"
+        Output: false
+
+        Example 5:
+
+        Input: s = "{[]}"
+        Output: true
+        """
+        self.assertEqual(self.solution.isValid("()"), True)
+        self.assertEqual(self.solution.isValid("()[]{}"), True)
+        self.assertEqual(self.solution.isValid("(]"), False)
+        self.assertEqual(self.solution.isValid("([)]"), False)
+        self.assertEqual(self.solution.isValid("{[]}"), True)
+
+    def test_mergeTwoLists(self):
+        """Example 1:
+
+        Input: l1 = [1,2,4], l2 = [1,3,4]
+        Output: [1,1,2,3,4,4]
+
+        Example 2:
+
+        Input: l1 = [], l2 = []
+        Output: []
+
+        Example 3:
+
+        Input: l1 = [], l2 = [0]
+        Output: [0]
+        """
+        self.assertEqual(self.solution.mergeTwoLists("{[]}"), True)
+        pass
+
 if __name__ == '__main__':
     unittest.main()
