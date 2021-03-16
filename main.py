@@ -130,25 +130,34 @@ class Solution:
 
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         """Merge two sorted linked lists and return it as a sorted list. The list should be made by splicing together the nodes of the first two lists."""
-        pass
+        ll1 = []
+        if l1:
+            curr = l1
+            while curr.next:
+                ll1.append(curr.val)
+                curr = curr.next
+            else:
+                ll1.append(curr.val)
+
+        ll2 = []
+        if l2:
+            curr = l2
+            while curr.next:
+                ll2.append(curr.val)
+                curr = curr.next
+            else:
+                ll2.append(curr.val)
+
+        ret_ll = SinglyLinkedList()
+        for i in sorted(ll1+ll2, reverse=True):
+            ret_ll.append(i)
+        return ret_ll.head
+
 
 if __name__ == '__main__':
     solution = Solution()
-    #ln1_1 = ListNode(val=4)
-    #ln1_2 = ListNode(val=2, next=ln1)
-    #ln1_3 = ListNode(val=1, next=ln2)
-    sll = SinglyLinkedList()
-    #breakpoint()
-    sll.append(1)
-    sll.append(2)
-    sll.append(3)
-    print(sll.get(3))
-    #ln1 = ListNode(val=4)
-    #ln2 = ListNode(val=3, next=ln1)
-    #ln3 = ListNode(val=1, next=ln2)
 
-    #curr_node = ln3
-    #while curr_node:
-    #    print(curr_node.val)
-    #    curr_node = curr_node.next
-	#print(solution.isValid("(])"))
+    l1 = ListNode(val=1, next=ListNode(val=2, next=ListNode(val=4, next=None)))
+
+    l2 = ListNode(val=1, next=ListNode(val=3, next=ListNode(val=4, next=None)))
+    solution.mergeTwoLists(l1, l2)
