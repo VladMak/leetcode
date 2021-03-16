@@ -1,4 +1,5 @@
 from ListNode import ListNode
+from SinglyLinkedList import SinglyLinkedList
 
 class Solution:
     def twoSum(self, nums: list, target: int) -> list:
@@ -132,8 +133,22 @@ class Solution:
         pass
 
 if __name__ == '__main__':
-	solution = Solution()
-    ln1 = ListNode(val=1)
-    ln2 = ListNode(val=2, next=ln1)
-    ln3 = ListNode(val=4, next=ln3)
-	print(solution.isValid("(])"))
+    solution = Solution()
+    #ln1_1 = ListNode(val=4)
+    #ln1_2 = ListNode(val=2, next=ln1)
+    #ln1_3 = ListNode(val=1, next=ln2)
+    sll = SinglyLinkedList()
+    #breakpoint()
+    sll.append(1)
+    sll.append(2)
+    sll.append(3)
+    print(sll.get(3))
+    #ln1 = ListNode(val=4)
+    #ln2 = ListNode(val=3, next=ln1)
+    #ln3 = ListNode(val=1, next=ln2)
+
+    #curr_node = ln3
+    #while curr_node:
+    #    print(curr_node.val)
+    #    curr_node = curr_node.next
+	#print(solution.isValid("(])"))
