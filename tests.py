@@ -1,5 +1,6 @@
 import unittest
 from main import Solution 
+from ListNode import ListNode
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -177,8 +178,21 @@ class TestSolution(unittest.TestCase):
         Input: l1 = [], l2 = [0]
         Output: [0]
         """
-        self.assertEqual(self.solution.mergeTwoLists("{[]}"), True)
-        pass
+        # не работает, продумать как
+        l1 = ListNode(val=1, next=ListNode(val=2, next=ListNode(val=4, next=None)))
+        l2 = ListNode(val=1, next=ListNode(val=3, next=ListNode(val=4, next=None)))
+        ret = ListNode(val=1, next=ListNode(val=1, next=ListNode(val=2, next=ListNode(val=3, next=ListNode(val=4, next=ListNode(val=4))))))
+        self.assertEqual(self.solution.mergeTwoLists(l1, l2), ret)
+
+        l1 = ListNode()
+        l2 = ListNode()
+        ret = ListNode()
+        self.assertEqual(self.solution.mergeTwoLists(l1, l2), ret)
+
+        l1 = ListNode()
+        l2 = ListNode(val=0)
+        ret = ListNode(val=0)
+        self.assertEqual(self.solution.mergeTwoLists(l1, l2), ret)
 
 if __name__ == '__main__':
     unittest.main()
